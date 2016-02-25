@@ -121,54 +121,56 @@ public final class WorldLayoutData {
       0.8359375f,  0.17578125f,  0.125f, 1.0f,
   };
 
+    //ALTERED FOR TUTSPLUS COURSE
   public static final float[] CUBE_FOUND_COLORS = new float[] {
-      // front, yellow
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
+      // front, yellow AND WHITE
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
 
-      // right, yellow
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
 
-      // back, yellow
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
+      // right, yellow AND WHITE
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
 
-      // left, yellow
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
+      // back, yellow AND WHITE
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
 
-      // top, yellow
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
+      // left, yellow AND WHITE
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
 
-      // bottom, yellow
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
-      1.0f,  0.6523f, 0.0f, 1.0f,
+      // top, yellow AND WHITE
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+
+      // bottom, yellow AND WHITE
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 1.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
+      1.0f,  1.0f, 0.0f, 1.0f,
   };
 
   public static final float[] CUBE_NORMALS = new float[] {
@@ -246,5 +248,15 @@ public final class WorldLayoutData {
       0.0f, 0.3398f, 0.9023f, 1.0f,
       0.0f, 0.3398f, 0.9023f, 1.0f,
       0.0f, 0.3398f, 0.9023f, 1.0f,
+  };
+  
+  //ADDITION FOR TUTSPLUS COURSE
+  public static final float[] FLOOR_FOUND_COLORS = new float[] {
+      1.0f, 0.0f, 0.5f, 1.0f,
+      1.0f, 0.0f, 0.5f, 1.0f,
+      1.0f, 0.0f, 0.5f, 1.0f,
+      1.0f, 0.0f, 0.5f, 1.0f,
+      1.0f, 0.0f, 0.5f, 1.0f,
+      1.0f, 0.0f, 0.5f, 1.0f,
   };
 }
