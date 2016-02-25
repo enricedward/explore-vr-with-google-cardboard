@@ -74,6 +74,7 @@ public class MainActivity extends CardboardActivity implements CardboardView.Ste
   private FloatBuffer cubeVertices;
   private FloatBuffer cubeColors;
   private FloatBuffer cubeFoundColors;
+  private FloatBuffer floorFoundColors;//ADDITION FOR TUTSPLUS COURSE
   private FloatBuffer cubeNormals;
 
   private int cubeProgram;
@@ -115,6 +116,11 @@ public class MainActivity extends CardboardActivity implements CardboardView.Ste
 
   private CardboardAudioEngine cardboardAudioEngine;
   private volatile int soundId = CardboardAudioEngine.INVALID_ID;
+  
+  //ADDITIONS FOR TUTSPLUS COURSE
+  private int numVisibleSides = 6;
+  private Random rand = new Random();
+  //---
 
   /**
    * Converts a raw text file, saved as a resource, into an OpenGL ES shader.
@@ -247,6 +253,15 @@ public class MainActivity extends CardboardActivity implements CardboardView.Ste
     cubeFoundColors = bbFoundColors.asFloatBuffer();
     cubeFoundColors.put(WorldLayoutData.CUBE_FOUND_COLORS);
     cubeFoundColors.position(0);
+    
+    //ADDITIONS FOR TUTSPLUS COURSE
+    ByteBuffer bbFFoundColors =
+        ByteBuffer.allocateDirect(WorldLayoutData.FLOOR_FOUND_COLORS.length * 4);
+    bbFFoundColors.order(ByteOrder.nativeOrder());
+    floorFoundColors = bbFFoundColors.asFloatBuffer();
+    floorFoundColors.put(WorldLayoutData.FLOOR_FOUND_COLORS);
+    floorFoundColors.position(0);
+    //---
 
     ByteBuffer bbNormals = ByteBuffer.allocateDirect(WorldLayoutData.CUBE_NORMALS.length * 4);
     bbNormals.order(ByteOrder.nativeOrder());
@@ -324,7 +339,7 @@ public class MainActivity extends CardboardActivity implements CardboardView.Ste
     checkGLError("Floor program params");
 
     Matrix.setIdentityM(modelFloor, 0);
-    Matrix.translateM(modelFloor, 0, 0, -floorDepth, 0); // Floor appears below user.
+    Matrix.translateM(modelFloor, 0, 0, floorDepth, 0); // Floor appears below user - CHANGED FOR TUTSPLUS COURSE
 
     // Avoid any delays during start-up due to decoding of sound files.
     new Thread(
@@ -470,7 +485,7 @@ public class MainActivity extends CardboardActivity implements CardboardView.Ste
     GLES20.glVertexAttribPointer(cubeColorParam, 4, GLES20.GL_FLOAT, false, 0,
         isLookingAtObject() ? cubeFoundColors : cubeColors);
 
-    GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 36);
+    GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, numVisibleSides*6);//ALTERED FOR TUTSPLUS COURSE
     checkGLError("Drawing cube");
   }
 
@@ -492,7 +507,8 @@ public class MainActivity extends CardboardActivity implements CardboardView.Ste
     GLES20.glVertexAttribPointer(
         floorPositionParam, COORDS_PER_VERTEX, GLES20.GL_FLOAT, false, 0, floorVertices);
     GLES20.glVertexAttribPointer(floorNormalParam, 3, GLES20.GL_FLOAT, false, 0, floorNormals);
-    GLES20.glVertexAttribPointer(floorColorParam, 4, GLES20.GL_FLOAT, false, 0, floorColors);
+    //ALTERED FOR TUTSPLUS COURSE
+    GLES20.glVertexAttribPointer(floorColorParam, 4, GLES20.GL_FLOAT, false, 0, isLookingAtObject() ? floorFoundColors : floorColors);
 
     GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 6);
 
@@ -506,13 +522,19 @@ public class MainActivity extends CardboardActivity implements CardboardView.Ste
   public void onCardboardTrigger() {
     Log.i(TAG, "onCardboardTrigger");
 
+    //ALTERED FOR TUTSPLUS COURSE
     if (isLookingAtObject()) {
-      score++;
-      overlayView.show3DToast("Found it! Look around for another one.\nScore = " + score);
-      hideObject();
+        score++;
+        overlayView.show3DToast("Found it! Look around for another one.\nScore = " + score);
+        floorDepth *= -1;
+        Matrix.setIdentityM(modelFloor, 0);
+        Matrix.translateM(modelFloor, 0, 0, floorDepth, 0);
+        numVisibleSides=rand.nextInt((6-2)+1)+2;
     } else {
-      overlayView.show3DToast("Look around to find the object!");
+        overlayView.show3DToast("Look around to find the object!");
     }
+    hideObject();
+    //---
 
     // Always give user feedback.
     vibrator.vibrate(50);
